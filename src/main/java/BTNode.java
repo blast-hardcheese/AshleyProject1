@@ -5,7 +5,7 @@
 import java.util.*;
 
 
-public class BTNode<E> {
+public class BTNode<E extends Integer> {
    private E data;
    private BTNode<E> left;
    private BTNode<E> right;
