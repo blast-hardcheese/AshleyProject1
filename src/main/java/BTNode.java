@@ -98,7 +98,9 @@ public class BTNode<E> {
       if(left !=null)
          left.inOrderTrav();
       System.out.print(data);
-}
+      if(right != null)
+         right.inOrderTrav();
+   }
 
    public String preOrderTrav()
    {
