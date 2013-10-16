@@ -80,11 +80,11 @@ public class BTNode<E extends Integer> {
       }
       else if(insertValue < getData())
       {
-         left.insert(insertValue, left.node);
+         left.insert(insertValue, left);
       }
       else if(insertValue > getData())
       {
-         right.insert(insertValue, right.node);
+         right.insert(insertValue, right);
       }
       else if(insertValue == getData())
       {
