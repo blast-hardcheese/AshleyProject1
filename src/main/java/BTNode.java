@@ -100,6 +100,7 @@ public class BTNode<E extends Integer> {
       System.out.print(data);
       if(right != null)
          right.inOrderTrav();
+      return "wat";
    }
 
    public String preOrderTrav()
@@ -109,6 +110,7 @@ public class BTNode<E extends Integer> {
          left.preOrderTrav();
       if(right != null)
          right.preOrderTrav();
+      return "wat";
    }
 
    public String postOrderTrav()
@@ -118,6 +120,7 @@ public class BTNode<E extends Integer> {
       if(right != null)
          right.postOrderTrav();
       System.out.println(data);
+      return "wat";
    }
 
 /*
