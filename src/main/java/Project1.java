@@ -9,7 +9,10 @@ public class Project1
 {
    public static void main( String [] args)
    {
-      Scanner kb = new Scanner(System.in);
+      String input = "2 1 5 4 3\n";
+
+//      Scanner kb = new Scanner(System.in);
+      Scanner kb = new Scanner(input);
 
       int targetElement = 2;
       boolean quit = false;
