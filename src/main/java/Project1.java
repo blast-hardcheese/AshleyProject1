@@ -72,3 +72,4 @@ public class Project1
 */
       }
 }
+// vim: set expandtab ts=3 sw=3:
