@@ -9,7 +9,6 @@ public class BTNode<E extends Integer> {
    private E data;
    private BTNode<E> left;
    private BTNode<E> right;
-   private BTNode<E> root;
 
    public BTNode(E initialData, BTNode<E> initialLeft, BTNode<E> initialRight)
    {
