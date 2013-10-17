@@ -76,8 +76,7 @@ public class BTNode<E extends Integer> {
    {
       if(getData() == null)
       {
-         //need to set something up
-         //new BTNode<Integer>(insertValue, null, null);
+         setData(insertValue);
       }
       else if(insertValue < getData())
       {
