@@ -81,10 +81,16 @@ public class BTNode<E extends Integer> {
       }
       else if(insertValue < getData())
       {
+         if(left == null) {
+            left = new BTNode<E>(null, null, null);
+         }
          left.insert(insertValue);
       }
       else if(insertValue > getData())
       {
+         if(right == null) {
+            right = new BTNode<E>(null, null, null);
+         }
          right.insert(insertValue);
       }
       else if(insertValue == getData())
