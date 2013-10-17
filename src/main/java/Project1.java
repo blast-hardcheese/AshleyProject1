@@ -34,8 +34,8 @@ public class Project1
          myTree.insert(Integer.parseInt(tokens[i]), null);
       }
 
-/*
-//      System.out.println("Here is the sequence of values: " + treeSequence);
+
+      System.out.println("Here is the sequence of values: " + treeSequence);
 /*
 //      System.out.println("Here is the sequence of values: " + treeSequence);
 

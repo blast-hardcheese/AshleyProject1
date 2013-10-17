@@ -36,6 +36,7 @@ public class BTNode<E extends Integer> {
    {
       data = newData;
    }
+
    public void setLeft(BTNode<E> newLeft)
    {
       left = newLeft;
@@ -46,7 +47,8 @@ public class BTNode<E extends Integer> {
       right= newRight;
    }
 
-/*   public void remove(E removeValue, BTNode <E> node)
+/*
+   public void remove(E removeValue, BTNode <E> node)
    {
       if(node == null)
       {
@@ -70,7 +72,7 @@ public class BTNode<E extends Integer> {
    }
 */
 
- public void insert(E insertValue, BTNode<E> node)
+   public void insert(E insertValue, BTNode<E> node)
    {
       if(node == null)
       {
