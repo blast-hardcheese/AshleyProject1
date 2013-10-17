@@ -101,32 +101,50 @@ public class BTNode<E extends Integer> {
 
    public String inOrderTrav()
    {
+      String r = "";
+
       if(left !=null)
-         left.inOrderTrav();
-      System.out.print(data);
+         r = r + left.preOrderTrav();
+
+      if(getData() != null)
+         r = r + getData();
+
       if(right != null)
-         right.inOrderTrav();
-      return "wat";
+         r = r + right.preOrderTrav();
+
+      return r;
    }
 
    public String preOrderTrav()
    {
-      System.out.println(data);
+      String r = "";
+
+      if(getData() != null)
+         r = r + getData();
+
       if(left !=null)
-         left.preOrderTrav();
+         r = r + left.preOrderTrav();
+
       if(right != null)
-         right.preOrderTrav();
-      return "wat";
+         r = r + right.preOrderTrav();
+
+      return r;
    }
 
    public String postOrderTrav()
    {
-      if(left !=null)
-         left.postOrderTrav();
+      String r = "";
+
+      if(left != null)
+         r = r + left.postOrderTrav();
+
       if(right != null)
-         right.postOrderTrav();
-      System.out.println(data);
-      return "wat";
+         r = r + right.postOrderTrav();
+
+      if(getData() != null)
+         r = r + getData();
+
+      return r;
    }
 
 /*
