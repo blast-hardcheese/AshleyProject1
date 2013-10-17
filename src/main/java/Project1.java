@@ -34,8 +34,11 @@ public class Project1
          myTree.insert(Integer.parseInt(tokens[i]));
       }
 
-
       System.out.println("Here is the sequence of values: " + treeSequence);
+
+      System.out.println("In pre-order: >" + myTree.preOrderTrav() + "<");
+      System.out.println("In order: >" + myTree.inOrderTrav() + "<");
+      System.out.println("In post-order: >" + myTree.postOrderTrav() + "<");
 /*
 //      System.out.println("Here is the sequence of values: " + treeSequence);
 
