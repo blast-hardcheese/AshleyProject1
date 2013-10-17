@@ -31,7 +31,7 @@ public class Project1
 
       for(int i = 1; i < tokens.length; i++)
       {
-         myTree.insert(Integer.parseInt(tokens[i]), null);
+         myTree.insert(Integer.parseInt(tokens[i]));
       }
 
 

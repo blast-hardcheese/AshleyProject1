@@ -72,20 +72,20 @@ public class BTNode<E extends Integer> {
    }
 */
 
-   public void insert(E insertValue, BTNode<E> node)
+   public void insert(E insertValue)
    {
-      if(node == null)
+      if(getData() == null)
       {
          //need to set something up
          //new BTNode<Integer>(insertValue, null, null);
       }
       else if(insertValue < getData())
       {
-         left.insert(insertValue, left);
+         left.insert(insertValue);
       }
       else if(insertValue > getData())
       {
-         right.insert(insertValue, right);
+         right.insert(insertValue);
       }
       else if(insertValue == getData())
       {
