@@ -23,9 +23,9 @@ public class BTNode<E extends Integer> {
 
    public BTNode(E initialData, BTNode<E> initialLeft, BTNode<E> initialRight)
    {
-      data = initialData;
-      left = initialLeft;
-      right = initialRight;
+      this.data = initialData;
+      this.left = initialLeft;
+      this.right = initialRight;
    }
 
    public BTNode(E initialData, BTNode<E> initialParent)
@@ -56,17 +56,17 @@ public class BTNode<E extends Integer> {
 
    public E getData()
    {
-      return data;
+      return this.data;
    }
 
    public BTNode<E> getLeft()
    {
-      return left;
+      return this.left;
    }
 
    public BTNode<E> getRight()
    {
-      return right;
+      return this.right;
    }
 
    public void setParent(BTNode<E> newParent)
@@ -81,17 +81,17 @@ public class BTNode<E extends Integer> {
 
    public void setData(E newData)
    {
-      data = newData;
+      this.data = newData;
    }
 
    public void setLeft(BTNode<E> newLeft)
    {
-      left = newLeft;
+      this.left = newLeft;
    }
 
    public void setRight(BTNode<E> newRight)
    {
-      right= newRight;
+      this.right= newRight;
    }
 
 /*
@@ -103,7 +103,7 @@ public class BTNode<E extends Integer> {
       }
       else if(removeValue < node.getData())
       {
-         left.remove(removeValue, left.node);
+         this.left.remove(removeValue, left.node);
       }
       else if(removeValue > node.getData())
       {
@@ -127,17 +127,17 @@ public class BTNode<E extends Integer> {
       }
       else if(insertValue < getData())
       {
-         if(left == null) {
-            left = new BTNode<E>();
+         if(this.left == null) {
+            this.left = new BTNode<E>();
          }
-         left.insert(insertValue);
+         this.left.insert(insertValue);
       }
       else if(insertValue > getData())
       {
-         if(right == null) {
-            right = new BTNode<E>();
+         if(this.right == null) {
+            this.right = new BTNode<E>();
          }
-         right.insert(insertValue);
+         this.right.insert(insertValue);
       }
       else if(insertValue == getData())
       {
@@ -150,9 +150,9 @@ public class BTNode<E extends Integer> {
    {
       String r = "";
 
-      if(left !=null)
+      if(this.left !=null)
       {
-         r = r + " " + left.inOrderTrav();
+         r = r + " " + this.left.inOrderTrav();
       }
 
       if(getData() != null)
@@ -160,9 +160,9 @@ public class BTNode<E extends Integer> {
          r = r + " " + getData();
       }
 
-      if(right != null)
+      if(this.right != null)
       {
-         r = r + " " + right.inOrderTrav();
+         r = r + " " + this.right.inOrderTrav();
       }
 
       return r.trim();
@@ -177,14 +177,14 @@ public class BTNode<E extends Integer> {
          r = r + " " + getData();
       }
 
-      if(left !=null)
+      if(this.left !=null)
       {
-         r = r + " " + left.preOrderTrav();
+         r = r + " " + this.left.preOrderTrav();
       }
 
-      if(right != null)
+      if(this.right != null)
       {
-         r = r + " " + right.preOrderTrav();
+         r = r + " " + this.right.preOrderTrav();
       }
 
       return r.trim();
@@ -194,14 +194,14 @@ public class BTNode<E extends Integer> {
    {
       String r = "";
 
-      if(left != null)
+      if(this.left != null)
       {
-         r = r + " " + left.postOrderTrav();
+         r = r + " " + this.left.postOrderTrav();
       }
 
-      if(right != null)
+      if(this.right != null)
       {
-         r = r + " " + right.postOrderTrav();
+         r = r + " " + this.right.postOrderTrav();
       }
 
       if(getData() != null)
