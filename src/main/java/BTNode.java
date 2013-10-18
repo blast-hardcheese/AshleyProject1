@@ -104,13 +104,19 @@ public class BTNode<E extends Integer> {
       String r = "";
 
       if(left !=null)
+      {
          r = r + left.preOrderTrav();
+      }
 
       if(getData() != null)
+      {
          r = r + getData();
+      }
 
       if(right != null)
+      {
          r = r + right.preOrderTrav();
+      }
 
       return r;
    }
@@ -120,13 +126,19 @@ public class BTNode<E extends Integer> {
       String r = "";
 
       if(getData() != null)
+      {
          r = r + getData();
+      }
 
       if(left !=null)
+      {
          r = r + left.preOrderTrav();
+      }
 
       if(right != null)
+      {
          r = r + right.preOrderTrav();
+      }
 
       return r;
    }
