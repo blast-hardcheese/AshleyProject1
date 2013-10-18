@@ -105,7 +105,7 @@ public class BTNode<E extends Integer> {
 
       if(left !=null)
       {
-         r = r + left.preOrderTrav();
+         r = r + left.inOrderTrav();
       }
 
       if(getData() != null)
@@ -115,7 +115,7 @@ public class BTNode<E extends Integer> {
 
       if(right != null)
       {
-         r = r + right.preOrderTrav();
+         r = r + right.inOrderTrav();
       }
 
       return r;
