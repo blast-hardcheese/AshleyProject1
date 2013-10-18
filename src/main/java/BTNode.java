@@ -9,12 +9,33 @@ public class BTNode<E extends Integer> {
    private E data;
    private BTNode<E> left;
    private BTNode<E> right;
+   private Boolean isLeft = false;
 
    public BTNode(E initialData, BTNode<E> initialLeft, BTNode<E> initialRight)
    {
       data = initialData;
       left = initialLeft;
       right = initialRight;
+   }
+
+   public void setIsLeft(Boolean isLeft)
+   {
+      this.isLeft = isLeft;
+   }
+
+   public void setIsRight(Boolean isRight)
+   {
+      this.isLeft = ! isRight;
+   }
+
+   public Boolean isLeft()
+   {
+      return this.isLeft;
+   }
+
+   public Boolean isRight()
+   {
+      return ! this.isLeft;
    }
 
    public E getData()
