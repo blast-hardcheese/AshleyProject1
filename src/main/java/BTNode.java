@@ -148,13 +148,19 @@ public class BTNode<E extends Integer> {
       String r = "";
 
       if(left != null)
+      {
          r = r + left.postOrderTrav();
+      }
 
       if(right != null)
+      {
          r = r + right.postOrderTrav();
+      }
 
       if(getData() != null)
+      {
          r = r + getData();
+      }
 
       return r;
    }
