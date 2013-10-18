@@ -30,7 +30,7 @@ public class Project1
 
       String[] tokens = treeSequence.split("\\s+");
 
-      BTNode<Integer> myTree = new BTNode<Integer>(Integer.parseInt(tokens[0]), null, null);
+      BTNode<Integer> myTree = new BTNode<Integer>(Integer.parseInt(tokens[0]));
 
       for(int i = 1; i < tokens.length; i++)
       {

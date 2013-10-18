@@ -12,6 +12,15 @@ public class BTNode<E extends Integer> {
    private BTNode<E> parent;
    private Boolean isLeft = false;
 
+   public BTNode()
+   {
+   }
+
+   public BTNode(E initialData)
+   {
+      setData(initialData);
+   }
+
    public BTNode(E initialData, BTNode<E> initialLeft, BTNode<E> initialRight)
    {
       data = initialData;
@@ -119,14 +128,14 @@ public class BTNode<E extends Integer> {
       else if(insertValue < getData())
       {
          if(left == null) {
-            left = new BTNode<E>(null, null, null);
+            left = new BTNode<E>();
          }
          left.insert(insertValue);
       }
       else if(insertValue > getData())
       {
          if(right == null) {
-            right = new BTNode<E>(null, null, null);
+            right = new BTNode<E>();
          }
          right.insert(insertValue);
       }
