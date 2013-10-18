@@ -182,4 +182,4 @@ public class BTNode<E extends Integer> {
     }
 */
 }
-// vim: set expandtab ts=3 sw=3:
+// vim: set expandtab sts=3 ts=3 sw=3:
