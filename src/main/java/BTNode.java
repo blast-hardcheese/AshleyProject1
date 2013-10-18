@@ -105,20 +105,20 @@ public class BTNode<E extends Integer> {
 
       if(left !=null)
       {
-         r = r + left.inOrderTrav();
+         r = r + " " + left.inOrderTrav();
       }
 
       if(getData() != null)
       {
-         r = r + getData();
+         r = r + " " + getData();
       }
 
       if(right != null)
       {
-         r = r + right.inOrderTrav();
+         r = r + " " + right.inOrderTrav();
       }
 
-      return r;
+      return r.trim();
    }
 
    public String preOrderTrav()
@@ -127,20 +127,20 @@ public class BTNode<E extends Integer> {
 
       if(getData() != null)
       {
-         r = r + getData();
+         r = r + " " + getData();
       }
 
       if(left !=null)
       {
-         r = r + left.preOrderTrav();
+         r = r + " " + left.preOrderTrav();
       }
 
       if(right != null)
       {
-         r = r + right.preOrderTrav();
+         r = r + " " + right.preOrderTrav();
       }
 
-      return r;
+      return r.trim();
    }
 
    public String postOrderTrav()
@@ -149,20 +149,20 @@ public class BTNode<E extends Integer> {
 
       if(left != null)
       {
-         r = r + left.postOrderTrav();
+         r = r + " " + left.postOrderTrav();
       }
 
       if(right != null)
       {
-         r = r + right.postOrderTrav();
+         r = r + " " + right.postOrderTrav();
       }
 
       if(getData() != null)
       {
-         r = r + getData();
+         r = r + " " + getData();
       }
 
-      return r;
+      return r.trim();
    }
 
 /*
