@@ -180,7 +180,7 @@ public class BTNode<E extends Integer> {
       return r.trim();
    }
 
-   public BTNode<E> extractMaxNode()
+   private BTNode<E> extractMaxNode()
    {
       if(right == null) {
          return this;
