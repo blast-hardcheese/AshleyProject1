@@ -100,5 +100,7 @@ object MyApp extends App {
   println(tree.traverseIn)
   println(tree.traversePost)
 
-  println(tree.delete(51))
+  println("Delete:")
+  val deleteMe = List(0, 51, 59, 60, 27, 15, 75, 68, 3, 83, 44, 22, 40, 99, 29, 77, 90, 36)
+  val emptyTree = deleteMe.foldLeft(tree)( { (last, value) => println(last.traverseIn); last.delete(value).getOrElse(BSTNode(-999)) } )
 }
