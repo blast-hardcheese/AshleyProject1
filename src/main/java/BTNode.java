@@ -9,7 +9,6 @@ public class BTNode<E extends Integer> {
    private E data;
    private BTNode<E> left;
    private BTNode<E> right;
-   private BTNode<E> parent;
    private Boolean isLeft = false;
 
    public BTNode()
@@ -26,12 +25,6 @@ public class BTNode<E extends Integer> {
       this.data = initialData;
       this.left = initialLeft;
       this.right = initialRight;
-   }
-
-   public BTNode(E initialData, BTNode<E> initialParent)
-   {
-      setData(initialData);
-      setParent(initialParent);
    }
 
    public void setIsLeft(Boolean isLeft)
@@ -67,16 +60,6 @@ public class BTNode<E extends Integer> {
    public BTNode<E> getRight()
    {
       return this.right;
-   }
-
-   public void setParent(BTNode<E> newParent)
-   {
-      this.parent = newParent;
-   }
-
-   public BTNode<E> getParent()
-   {
-      return this.parent;
    }
 
    public void setData(E newData)
