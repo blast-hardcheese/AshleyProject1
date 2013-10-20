@@ -50,6 +50,39 @@ class BSTNode[T <: Int](val data: T, val left: Option[BSTNode[T]], val right: Op
     ).flatten.mkString(" ")
   }
 
+  def extractMaxNode(): Tuple2[BSTNode[T], Option[BSTNode[T]]] = {
+    right match {
+      case None => (this, None)
+      case Some(rnode) => {
+        val (extracted, newRight) = rnode.extractMaxNode
+        (extracted, Some(this.copy(right = newRight)))
+      }
+    }
+  }
+
+  def delete(value: T): Option[BSTNode[T]] = {
+    if(value == data) {
+      (left, right) match {
+        case (None, None) => None
+
+        case (None, right@Some(_)) => right
+        case (left@Some(_),  None) => left
+
+        case (Some(lnode), Some(rnode)) => {
+          val (node, newLeft) = lnode.extractMaxNode()
+          Some(node.copy(
+            left=newLeft,
+            right=right
+          ))
+        }
+      }
+    } else if(value < data) {
+      Some(this.copy( left = left.flatMap(_.delete(value)) ))
+    } else {
+      Some(this.copy( right = right.flatMap(_.delete(value)) ))
+    }
+  }
+
   def copy(data: T = data, left: Option[BSTNode[T]] = left, right: Option[BSTNode[T]] = right) = {
     new BSTNode(data, left, right)
   }
@@ -66,4 +99,6 @@ object MyApp extends App {
   println(tree.traversePre)
   println(tree.traverseIn)
   println(tree.traversePost)
+
+  println(tree.delete(51))
 }
