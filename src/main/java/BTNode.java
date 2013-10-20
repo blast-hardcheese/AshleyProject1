@@ -135,30 +135,52 @@ public class BTNode<E extends Integer> {
       return r;
    }
 
-/*
-   public void remove(E removeValue, BTNode <E> node)
+   public BTNode<E> remove(E value)
    {
-      if(node == null)
+      BTNode<E> r = this;
+
+      if(getData() == value && ! this.hasLeft() && ! this.hasRight())
       {
-         System.out.println(removeValue + "does not exist");
+         r = null;
       }
-      else if(removeValue < node.getData())
+      else if(getData() == value)
       {
-         this.left.remove(removeValue, left.node);
+         if(this.hasLeft())
+         {
+            r = this.left.popRightmost();
+            if(r == null) {      // If our .left doesn't have a .right, we do some shuffling to avoid completely losing .left.left
+               r = this.left;
+               this.left = null;
+            }
+         }
+         else if(this.hasRight())
+         {
+            r = this.right.popLeftmost();
+            if(r == null) {
+               r = this.right;
+               this.right = null;
+            }
+         }
+
+         r.left = this.left;
+         r.right = this.right;
+         r.parent = this.parent;
+
+         this.left = null;
+         this.right = null;
+         this.parent = null;
       }
-      else if(removeValue > node.getData())
+      else if(this.hasLeft() && value < this.getData())
       {
-         right.remove(removeValue, right.node);
+         this.left = this.left.remove(value);
       }
-      else(removeValue == node.getData()
+      else if(this.hasRight() && value > this.getData())
       {
-         //remove node
-         //find the largest of the smallest node
-         //replace that value with the current node and set it equal to null
+         this.right = this.right.remove(value);
       }
 
+      return r;
    }
-*/
 
    public void insert(E insertValue)
    {
