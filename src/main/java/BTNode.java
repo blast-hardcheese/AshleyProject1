@@ -87,10 +87,6 @@ public class BTNode<E extends Integer> {
       return this.right != null;
    }
 
-   public BTNode<E> remove(E value) {
-      return null;
-   }
-
    public void insert(E insertValue)
    {
       if(getData() == null)
@@ -184,27 +180,41 @@ public class BTNode<E extends Integer> {
       return r.trim();
    }
 
-/*
-   public BTNode<E> predecessor(BTNode<E> source)
+   public BTNode<E> extractMaxNode()
    {
-
+      if(right == null) {
+         return this;
+      } else {
+         BTNode<E> node = this.right.extractMaxNode();
+         if(node == right) {
+            this.right = node.left;
+         }
+         return node;
+      }
    }
-*/
 
-/*
-   public BTNode<E> successor(BTNode <E> source)
+   public BTNode<E> remove(E value)
    {
-      if(source.getData() == data)
+      if(value == this.data) {
+         if(hasLeft() && hasRight()) {
+            BTNode<E> node = left.extractMaxNode();
+            node.right = right;
+            node.left = left;
+            return node;
+         } else if(hasRight()) {
+            return right;
+         } else if(hasLeft()) {
+            return left;
+         } else {
+            return null;
+         }
 
-      if(left !=null)
-      {
-         left.inOrderTrav();
+      } else if(value > data && hasRight()) {
+         right = right.remove(value);
+      } else if(value < data && hasLeft()) {
+         left = left.remove(value);
       }
-      if(right != null)
-      {
-         right.inOrderTrav();
-      }
-    }
-*/
+      return this;
+   }
 }
 // vim: set expandtab sts=3 ts=3 sw=3:
