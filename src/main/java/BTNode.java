@@ -69,20 +69,9 @@ public class BTNode<E extends Integer> {
    {
       String r = "";
 
-      if(this.left !=null)
-      {
-         r = r + " " + this.left.inOrderTrav();
-      }
-
-      if(getData() != null)
-      {
-         r = r + " " + getData();
-      }
-
-      if(this.right != null)
-      {
-         r = r + " " + this.right.inOrderTrav();
-      }
+      if(this.left !=null) { r = r + " " + this.left.inOrderTrav(); }
+      if(getData() != null) { r = r + " " + getData(); }
+      if(this.right != null) { r = r + " " + this.right.inOrderTrav(); }
 
       return r.trim();
    }
@@ -91,20 +80,9 @@ public class BTNode<E extends Integer> {
    {
       String r = "";
 
-      if(getData() != null)
-      {
-         r = r + " " + getData();
-      }
-
-      if(this.left !=null)
-      {
-         r = r + " " + this.left.preOrderTrav();
-      }
-
-      if(this.right != null)
-      {
-         r = r + " " + this.right.preOrderTrav();
-      }
+      if(getData() != null) { r = r + " " + getData(); }
+      if(this.left !=null) { r = r + " " + this.left.preOrderTrav(); }
+      if(this.right != null) { r = r + " " + this.right.preOrderTrav(); }
 
       return r.trim();
    }
@@ -113,20 +91,9 @@ public class BTNode<E extends Integer> {
    {
       String r = "";
 
-      if(this.left != null)
-      {
-         r = r + " " + this.left.postOrderTrav();
-      }
-
-      if(this.right != null)
-      {
-         r = r + " " + this.right.postOrderTrav();
-      }
-
-      if(getData() != null)
-      {
-         r = r + " " + getData();
-      }
+      if(this.left != null) { r = r + " " + this.left.postOrderTrav(); }
+      if(this.right != null) { r = r + " " + this.right.postOrderTrav(); }
+      if(getData() != null) { r = r + " " + getData(); }
 
       return r.trim();
    }
