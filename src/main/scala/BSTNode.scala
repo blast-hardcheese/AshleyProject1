@@ -18,6 +18,30 @@ class BSTNode[T <: Int](data: T, left: Option[BSTNode[T]], right: Option[BSTNode
     }
   }
 
+  def traversePre: String = {
+    List(
+      Some(data.toString),
+      left.map(_.traversePre),
+      right.map(_.traversePre)
+    ).flatten.mkString(" ")
+  }
+
+  def traverseIn: String = {
+    List(
+      left.map(_.traverseIn),
+      Some(data.toString),
+      right.map(_.traverseIn)
+    ).flatten.mkString(" ")
+  }
+
+  def traversePost: String = {
+    List(
+      left.map(_.traversePost),
+      right.map(_.traversePost),
+      Some(data.toString)
+    ).flatten.mkString(" ")
+  }
+
   def copy(data: T = data, left: Option[BSTNode[T]] = left, right: Option[BSTNode[T]] = right) = {
     new BSTNode(data, left, right)
   }
@@ -28,4 +52,8 @@ object MyApp extends App {
 
   val tree = nums.tail.foldLeft(BSTNode(nums.head))( (last, next) => last.insert(next) )
   println(tree)
+
+  println(tree.traversePre)
+  println(tree.traverseIn)
+  println(tree.traversePost)
 }
