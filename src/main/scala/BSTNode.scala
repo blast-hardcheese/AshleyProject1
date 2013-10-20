@@ -2,9 +2,10 @@ package ashley.project1
 
 object BSTNode {
   def apply[T <: Int](newData: T) = new BSTNode(newData, None, None)
+  def unapply[T <: Int](node: BSTNode[T]): Option[Tuple3[T, Option[BSTNode[T]], Option[BSTNode[T]]]] = Some((node.data, node.left, node.right))
 }
 
-class BSTNode[T <: Int](data: T, left: Option[BSTNode[T]], right: Option[BSTNode[T]])
+class BSTNode[T <: Int](val data: T, val left: Option[BSTNode[T]], val right: Option[BSTNode[T]])
 {
   override def toString = s"BSTNode($data, $left, $right)"
 
