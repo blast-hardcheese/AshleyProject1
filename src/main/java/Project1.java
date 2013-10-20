@@ -51,16 +51,19 @@ public class Project1
 //      Integer[] removeThese = {0, 15, 22, 27, 29, 3, 36, 40, 44, 51, 59, 60, 68, 75, 77, 83, 90, 99};
 
       for(Integer v : removeThese) {
-         System.out.println("Remove: " + v);
+         String s = "Remove " + v + ": " ;
          myTree = myTree.remove(v);
          if(myTree == null)
          {
-            System.out.println("myTree is now null.");
-            break;
+            s = s + "myTree is now null.";
          }
          else
          {
-            System.out.println("  >" + myTree.inOrderTrav() + "<");
+            s = s + myTree.inOrderTrav();
+         }
+         System.out.println(s);
+         if(myTree == null) {
+            break;
          }
       }
 
