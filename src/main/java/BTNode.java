@@ -104,6 +104,26 @@ public class BTNode<E extends Integer> {
       return this.right != null;
    }
 
+   public BTNode<E> popRightmost()
+   {
+      BTNode<E> r = null;
+      if(this.hasRight() && this.right.hasRight()) {
+         r = this.right.popRightmost();
+      }
+      else if(this.hasRight() && ! this.right.hasRight())
+      {
+         r = this.right;      // This is the node we're returning
+         this.right = r.left; // Get the left value (null is OK) and set it as our right (maintain the tree)
+
+         // Null out the return's properties
+         r.left = null;
+         r.right = null;
+         r.parent = null;
+      }
+
+      return r;
+   }
+
 /*
    public void remove(E removeValue, BTNode <E> node)
    {
