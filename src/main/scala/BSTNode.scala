@@ -18,6 +18,13 @@ class BSTNode[T <: Int](data: T, left: Option[BSTNode[T]], right: Option[BSTNode
     }
   }
 
+  def find(value: T): Option[BSTNode[T]] = (left, right) match {
+    case _                  if(value == data) => Some(this)
+    case (Some(left),  _)   if(value < data)  => left.find(value)
+    case (_, Some(right))   if(value > data)  => right.find(value)
+    case _                                    => None
+  }
+
   def traversePre: String = {
     List(
       Some(data.toString),
@@ -52,6 +59,8 @@ object MyApp extends App {
 
   val tree = nums.tail.foldLeft(BSTNode(nums.head))( (last, next) => last.insert(next) )
   println(tree)
+
+  println(tree.find(22))
 
   println(tree.traversePre)
   println(tree.traverseIn)
