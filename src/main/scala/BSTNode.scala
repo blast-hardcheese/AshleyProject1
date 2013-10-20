@@ -101,6 +101,10 @@ object MyApp extends App {
   println(tree.traversePost)
 
   println("Delete:")
-  val deleteMe = List(0, 51, 59, 60, 27, 15, 75, 68, 3, 83, 44, 22, 40, 99, 29, 77, 90, 36)
-  val emptyTree = deleteMe.foldLeft(tree)( { (last, value) => println(last.traverseIn); last.delete(value).getOrElse(BSTNode(-999)) } )
+  val deleteMe = List(0, 51, 59, 60, 27, 15, 75, 68, 3, 83, 44, 22, 40, 99, 29, 77, 90, 36, 0, -1, -2, -3)
+  val emptyTree = deleteMe.foldLeft[Option[BSTNode[Int]]](Some(tree))({ (last, value) =>
+    println(last.map(_.traverseIn).getOrElse("<empty tree>"))
+    last.flatMap(_.delete(value))
+  })
+  println(emptyTree)
 }
