@@ -104,7 +104,18 @@ public class BTNode<E extends Integer> {
       return this.right != null;
    }
 
+   public BTNode<E> popLeftmost()
+   {
+      return popXmost(true);
+   }
+
    public BTNode<E> popRightmost()
+   {
+
+      return popXmost(false);
+   }
+
+   private BTNode<E> popXmost(Boolean left)
    {
       BTNode<E> r = null;
       if(this.hasRight() && this.right.hasRight()) {
