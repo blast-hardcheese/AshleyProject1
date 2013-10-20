@@ -115,16 +115,42 @@ public class BTNode<E extends Integer> {
       return popXmost(false);
    }
 
+   private BTNode<E> getX(Boolean left)
+   {
+      BTNode<E> r = null;
+
+      if(left) r = getLeft();
+      else r = getRight();
+
+      return r;
+   }
+
+   private void setX(Boolean left, BTNode<E> node)
+   {
+      if(left) setLeft(node);
+      else setRight(node);
+   }
+
+   private Boolean hasX(Boolean left)
+   {
+      Boolean r = false;
+
+      if(left) r = hasLeft();
+      else r = hasRight();
+
+      return r;
+   }
+
    private BTNode<E> popXmost(Boolean left)
    {
       BTNode<E> r = null;
-      if(this.hasRight() && this.right.hasRight()) {
-         r = this.right.popRightmost();
+      if(this.hasX(left) && this.getX(left).hasX(left)) {
+         r = this.getX(left).popXmost(left);
       }
-      else if(this.hasRight() && ! this.right.hasRight())
+      else if(this.hasX(left) && ! this.getX(left).hasX(left))
       {
-         r = this.right;      // This is the node we're returning
-         this.right = r.left; // Get the left value (null is OK) and set it as our right (maintain the tree)
+         r = this.getX(left);                // This is the node we're returning
+         this.setX(left, r.getX(! left));    // Get the left value (null is OK) and set it as our right (maintain the tree)
 
          // Null out the return's properties
          r.left = null;
