@@ -26,45 +26,17 @@ public class BTNode<E extends Integer> {
       this.right = initialRight;
    }
 
-   public E getData()
-   {
-      return this.data;
-   }
+   public void setData(E newData) { this.data = newData; }
 
-   public BTNode<E> getLeft()
-   {
-      return this.left;
-   }
+   public E getData() { return this.data; }
 
-   public BTNode<E> getRight()
-   {
-      return this.right;
-   }
+   public Boolean hasLeft() { return this.left != null; }
+   public BTNode<E> getLeft() { return this.left; }
+   public void setLeft(BTNode<E> newLeft) { this.left = newLeft; }
 
-   public void setData(E newData)
-   {
-      this.data = newData;
-   }
-
-   public void setLeft(BTNode<E> newLeft)
-   {
-      this.left = newLeft;
-   }
-
-   public void setRight(BTNode<E> newRight)
-   {
-      this.right= newRight;
-   }
-
-   public Boolean hasLeft()
-   {
-      return this.left != null;
-   }
-
-   public Boolean hasRight()
-   {
-      return this.right != null;
-   }
+   public Boolean hasRight() { return this.right != null; }
+   public BTNode<E> getRight() { return this.right; }
+   public void setRight(BTNode<E> newRight) { this.right= newRight; }
 
    public void insert(E insertValue)
    {
