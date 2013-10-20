@@ -216,5 +216,39 @@ public class BTNode<E extends Integer> {
       }
       return this;
    }
+
+   private BTNode<E> walkMin() {
+      if(hasLeft()) return left.walkMin();
+      else return this;
+   }
+
+   private BTNode<E> walkMax() {
+      if(hasRight()) return right.walkMax();
+      else return this;
+   }
+
+   public BTNode<E> predecessor(E value) {
+      if(value < data && hasLeft()) {
+         return left.predecessor(value);
+      } else if(value > data && hasRight()) {
+         return right.predecessor(value);
+      } else if(value == data && hasLeft()) {
+         return this.left.walkMax();
+      }
+
+      return null;
+   }
+
+   public BTNode<E> successor(E value) {
+      if(value < data && hasLeft()) {
+         return left.successor(value);
+      } else if(value > data && hasRight()) {
+         return right.successor(value);
+      } else if(value == data && hasRight()) {
+         return this.right.walkMin();
+      }
+
+      return null;
+   }
 }
 // vim: set expandtab sts=3 ts=3 sw=3:
