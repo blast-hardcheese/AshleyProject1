@@ -43,6 +43,24 @@ public class Project1
       System.out.println("In pre-order: >" + myTree.preOrderTrav() + "<");
       System.out.println("In order: >" + myTree.inOrderTrav() + "<");
       System.out.println("In post-order: >" + myTree.postOrderTrav() + "<");
+
+      Integer[] removeThese = {0, 51, 59, 60, 27, 15, 75, 68, 3, 83, 44, 22, 40, 99, 29, 77, 90, 36};
+//      Integer[] removeThese = {0, 15, 22, 27, 29, 3, 36, 40, 44, 51, 59, 60, 68, 75, 77, 83, 90, 99};
+
+      for(Integer v : removeThese) {
+         System.out.println("Remove: " + v);
+         myTree = myTree.remove(v);
+         if(myTree == null)
+         {
+            System.out.println("myTree is now null.");
+            break;
+         }
+         else
+         {
+            System.out.println("  >" + myTree.inOrderTrav() + "<");
+         }
+      }
+
 /*
 //      System.out.println("Here is the sequence of values: " + treeSequence);
 
