@@ -86,6 +86,34 @@ class BSTNode[T <: Int](val data: T, val left: Option[BSTNode[T]], val right: Op
   def copy(data: T = data, left: Option[BSTNode[T]] = left, right: Option[BSTNode[T]] = right) = {
     new BSTNode(data, left, right)
   }
+
+  def walkMax: BSTNode[T] = right match {
+    case Some(rnode) => rnode.walkMax
+    case None => this
+  }
+
+  def walkMin: BSTNode[T] = left match {
+    case Some(lnode) => lnode.walkMin
+    case None => this
+  }
+
+  def successor(value: T): Option[BSTNode[T]] = {
+    (left, right) match {
+      case (Some(lnode), _) if(value < data) => lnode.successor(value)
+      case (_, Some(rnode)) if(value > data) => rnode.successor(value)
+      case (_, Some(rnode)) if(value == data) => Some(rnode.walkMin)
+      case _ => None
+    }
+  }
+
+  def predecessor(value: T): Option[BSTNode[T]] = {
+    (left, right) match {
+      case (Some(lnode), _) if(value < data) => lnode.predecessor(value)
+      case (_, Some(rnode)) if(value > data) => rnode.predecessor(value)
+      case (Some(lnode), _) if(value == data) => Some(lnode.walkMax)
+      case _ => None
+    }
+  }
 }
 
 object MyApp extends App {
@@ -99,6 +127,9 @@ object MyApp extends App {
   println(tree.traversePre)
   println(tree.traverseIn)
   println(tree.traversePost)
+
+  println(tree.predecessor(51))
+  println(tree.successor(51))
 
   println("Delete:")
   val deleteMe = List(0, 51, 59, 60, 27, 15, 75, 68, 3, 83, 44, 22, 40, 99, 29, 77, 90, 36, 0, -1, -2, -3)
