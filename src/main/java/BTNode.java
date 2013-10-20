@@ -94,6 +94,16 @@ public class BTNode<E extends Integer> {
       this.right= newRight;
    }
 
+   public Boolean hasLeft()
+   {
+      return this.left != null;
+   }
+
+   public Boolean hasRight()
+   {
+      return this.right != null;
+   }
+
 /*
    public void remove(E removeValue, BTNode <E> node)
    {
