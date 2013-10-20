@@ -9,7 +9,7 @@ public class Project1
 {
    public static void main( String [] args)
    {
-      String input = "2 1 5 4 3\n";
+      String input = "51 29 68 90 36 40 22 59 44 99 77 60 27 83 15 75 3\n";
 
 //      Scanner kb = new Scanner(System.in);
       Scanner kb = new Scanner(input);
